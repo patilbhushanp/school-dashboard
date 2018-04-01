@@ -21,7 +21,7 @@ public class NoticeView {
 
 	public List<Notice> getAllNotice() {
 		final String sqlQuery = "select uid, subject, date(meeting_date), contact_person, attendance_count, meeting_accepted_count, meeting_audience "
-								+ "from school_notice_list "
+								+ "from school_updates "
 								+ "order by meeting_date desc";
 		List<Notice> result = jdbcTemplate.query(sqlQuery, new NoticeListRowMapper());
 		return result;
