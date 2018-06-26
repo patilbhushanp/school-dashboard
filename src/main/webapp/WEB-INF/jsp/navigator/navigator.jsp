@@ -1,5 +1,5 @@
 		<nav class="navbar navbar-inverse">
-			<div class="container">
+			<div class="container" style="width:100% !important;">
 				<div class="navbar-header">
 					<a class="navbar-brand" href="/">School Dashboard</a>
 				</div>
@@ -12,10 +12,10 @@
 						<li><a href="/about">About</a></li>
 					</ul>
 					<ul class="nav navbar-nav pull-right">
-						<li><a href="/myNotification"><i class="fa fa-bell"></i></a></li>
-						<li><a href="/mailBox"><i class="fa fa-envelope"></i></a></li>
+						<li><a href="/newNotification"><i class="fa fa-bell"></i><span class="label label-warning">2</span></a></li>
+						<li><a href="/enquiry"><i class="fa fa-envelope"></i></a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
-	
+
