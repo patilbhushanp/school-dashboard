@@ -17,10 +17,10 @@
 						<img alt="achievement_image" src="/img/about.png" height="250px" width="250px" />
 					</div>
 					<div class="col-lg-9">
-					<b>Patience, Perspiration and Persistence wrote unbeatable Story for Blossom's Success</b><br/>
+					<b>Patience, Perspiration and Persistence wrote unbeatable Story for APS's Success</b><br/>
 	  				<b><i>Congratulations!!! Congratulations!!!</i></b><br/><br/>
-					<p>JSPM'S BLOSSOM PUBLIC SCHOOL Tathwade Pune, Ranked NO.1 Position in PCMC zone consequently for Second time Under National curriculum of CBSE Schools (Survey Done By TOI).</p>
-					<p>Our road was challenging but we achieved an excellent Position under the able guidance of Principal Mrs.Joytsana Mishra,
+					<p>SSPA'S ADRASH PUBLIC SCHOOL Tathwade Pune, Ranked NO.1 Position in PCMC zone consequently for Second time Under National curriculum of CBSE Schools (Survey Done By TOI).</p>
+					<p>Our road was challenging but we achieved an excellent Position under the able guidance of Principal Mr.Bhushan Patil,
 					mentor-ship of Management Team work of all teachers, Staff members along with the Support & co-opertion of Parents and Students.</p>
 					</div>
 				</div>
