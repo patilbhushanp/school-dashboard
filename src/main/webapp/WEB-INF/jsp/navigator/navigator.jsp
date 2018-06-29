@@ -12,7 +12,7 @@
 						<li><a href="/about">About</a></li>
 					</ul>
 					<ul class="nav navbar-nav pull-right">
-						<li><a href="/newNotification"><i class="fa fa-bell"></i><span class="label label-warning">2</span></a></li>
+						<li><a href="#"><i class="fa fa-bell"></i><span class="label label-warning">2</span></a></li>
 						<li><a href="/enquiry"><i class="fa fa-envelope"></i></a></li>
 					</ul>
 				</div>
