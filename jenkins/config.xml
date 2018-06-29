@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>School Dashboard Spring based application.</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.7.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/patilbhushanp/school-dashboard.git</url>
+        <credentialsId>5fe6188b-a341-4419-9a32-3bd690dfd521</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.29.0">
+      <spec></spec>
+    </com.cloudbees.jenkins.GitHubPushTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Maven>
+      <targets>clean install</targets>
+      <usePrivateRepository>false</usePrivateRepository>
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>false</injectBuildVariables>
+    </hudson.tasks.Maven>
+  </builders>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>**/target/*.war</artifacts>
+      <allowEmptyArchive>false</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <fingerprint>false</fingerprint>
+      <defaultExcludes>true</defaultExcludes>
+      <caseSensitive>true</caseSensitive>
+    </hudson.tasks.ArtifactArchiver>
+    <org.jenkinsci.plugins.awsbeanstalkpublisher.AWSEBPublisher plugin="aws-beanstalk-publisher-plugin@1.7.4">
+      <extensions>
+        <org.jenkinsci.plugins.awsbeanstalkpublisher.extensions.AWSEBElasticBeanstalkSetup>
+          <credentialsString>AWS School Dashboard : AKIAIGIXMBXI3WR27QZA</credentialsString>
+          <credentialsText></credentialsText>
+          <awsRegion>US_WEST_2</awsRegion>
+          <applicationName>School Dashboard</applicationName>
+          <versionLabelFormat>Sample Application 1.0.2</versionLabelFormat>
+          <failOnError>false</failOnError>
+          <awsRegionText>School Dashboard</awsRegionText>
+          <extensions>
+            <org.jenkinsci.plugins.awsbeanstalkpublisher.extensions.AWSEBS3Setup>
+              <bucketName>elasticbeanstalk-us-west-2-067829668268</bucketName>
+              <bucketRegion>us-west-2</bucketRegion>
+              <keyPrefix></keyPrefix>
+              <rootObject>\target\school-dashboard-1.0.war</rootObject>
+              <includes></includes>
+              <excludes></excludes>
+              <overwriteExistingFile>false</overwriteExistingFile>
+              <useTransferAcceleration>false</useTransferAcceleration>
+            </org.jenkinsci.plugins.awsbeanstalkpublisher.extensions.AWSEBS3Setup>
+          </extensions>
+          <envLookup>
+            <org.jenkinsci.plugins.awsbeanstalkpublisher.extensions.envlookup.ByName>
+              <envNameList/>
+            </org.jenkinsci.plugins.awsbeanstalkpublisher.extensions.envlookup.ByName>
+          </envLookup>
+        </org.jenkinsci.plugins.awsbeanstalkpublisher.extensions.AWSEBElasticBeanstalkSetup>
+      </extensions>
+    </org.jenkinsci.plugins.awsbeanstalkpublisher.AWSEBPublisher>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.34">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>
