@@ -25,8 +25,13 @@ public class NoticeRestController extends BaseRestController {
 		return dataResult;
 	}
 
-	@RequestMapping("/getNotice")
+	/*@RequestMapping("/getNotice")
 	public List<Notice> getNotice(@RequestParam(value="noticeId", defaultValue="-1") Integer noticeId) {
+		return noticeView.getNoticeDetail(noticeId);
+	}*/
+
+	@RequestMapping("/getNotice")
+	public List<Notice> getNotice(@RequestParam(value="noticeId", defaultValue="") String noticeId) {
 		return noticeView.getNoticeDetail(noticeId);
 	}
 }

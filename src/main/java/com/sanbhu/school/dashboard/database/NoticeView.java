@@ -28,8 +28,14 @@ public class NoticeView {
 
 	}
 
-	public List<Notice> getNoticeDetail(final Integer noticeId) {
+	/*public List<Notice> getNoticeDetail(final Integer noticeId) {
 		final String sqlQuery = "select * from school_notice_detail where noticeId = " + noticeId + " order by uid asc";
+		List<Notice> result = jdbcTemplate.query(sqlQuery, new NoticeDetailRowMapper());
+		return result;
+	}*/
+
+	public List<Notice> getNoticeDetail(final String noticeId) {
+		final String sqlQuery = "select * from school_notice_detail where noticeId = " + noticeId;
 		List<Notice> result = jdbcTemplate.query(sqlQuery, new NoticeDetailRowMapper());
 		return result;
 
