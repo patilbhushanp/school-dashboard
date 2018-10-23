@@ -2,6 +2,8 @@ package com.sanbhu.school.dashboard.database;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +37,16 @@ public class NoticeView {
 	}*/
 
 	public List<Notice> getNoticeDetail(final String noticeId) {
+		final List<Notice> result = new ArrayList<Notice>();
 		final String sqlQuery = "select * from school_notice_detail where noticeId = " + noticeId;
-		List<Notice> result = jdbcTemplate.query(sqlQuery, new NoticeDetailRowMapper());
+		try (final Statement statement = jdbcTemplate.getDataSource().getConnection().createStatement();
+				final ResultSet resultSet = statement.executeQuery(sqlQuery);) {
+			while (resultSet.next()) {
+				// fetching data
+			}
+		} catch (SQLException exception) {
+			exception.printStackTrace();
+		}
 		return result;
 
 	}
