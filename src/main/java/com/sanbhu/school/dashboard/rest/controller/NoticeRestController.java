@@ -4,10 +4,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sanbhu.school.dashboard.controller.BaseRestController;
@@ -26,13 +25,9 @@ public class NoticeRestController extends BaseRestController {
 		return dataResult;
 	}
 
-	/*@RequestMapping("/getNotice")
+	@RequestMapping("/getNotice")
 	public List<Notice> getNotice(@RequestParam(value="noticeId", defaultValue="-1") Integer noticeId) {
 		return noticeView.getNoticeDetail(noticeId);
-	}*/
-
-	@RequestMapping("/getNotice")
-	public List<Notice> getNotice(final HttpServletRequest request) {
-		return noticeView.getNoticeDetail(request.getParameter("noticeId"));
 	}
+
 }
